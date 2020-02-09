@@ -1,4 +1,4 @@
-## Jets Project (Week 3 Skill Distillery
+## Jets Project (Week 3 Skill Distillery)
 
 
 ### Overview
