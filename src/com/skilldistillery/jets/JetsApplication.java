@@ -10,6 +10,7 @@ public class JetsApplication {
 
 	public static void main(String[] args) {
 		app.launch();
+		System.out.println("CLOSING SCANNER");
 		kb.close();
 	}
 
@@ -18,7 +19,7 @@ public class JetsApplication {
 	}
 
 	private void launch() {
-		app.displayUserMenu();
+		displayUserMenu();
 	}
 
 	private void displayUserMenu() {
@@ -34,79 +35,80 @@ public class JetsApplication {
 		System.out.println("9.) Quit the program");
 		System.out.print("Choice(1-9): ");
 		getUserInput();
-	}//end displaymenu
-	
+	}// end displaymenu
+
 	public void getUserInput() {
-		//System.out.print("Enter your choice: ");
+		boolean error = false;
 		int choice = 0;
 		try {
 			choice = kb.nextInt();
 			if (choice > 0 && choice < 10) {
-				//System.out.println("valid input");
-			}else {
+				// System.out.println("valid input");
+			} else {
 				System.out.println("\t\tInvalid input please use 1-9");
 				displayUserMenu();
 			}
 		} catch (Exception e) {
-			//e.printStackTrace();
+			error = true;
+			// e.printStackTrace();
 			System.out.println("\t\tInvalid input please use 1-9");
-			choice = 0;
 			kb.nextLine();
 			displayUserMenu();
 		}
 		System.out.println();
-		switch (choice) {
-		case 1:
+		if (!error) {
+			switch (choice) {
+			case 1:
 //		1) List fleet
-			airField.listAllJets();
-			displayUserMenu();
-			break;
-		case 2:
+				airField.listAllJets();
+				displayUserMenu();
+				break;
+			case 2:
 //		2) Fly all jets
-			airField.flyAllJets();
-			displayUserMenu();
-			break;
-		case 3:
+				airField.flyAllJets();
+				displayUserMenu();
+				break;
+			case 3:
 //		3) View fastest jet
-			airField.getFastestJet();
-			displayUserMenu();
-			break;
-		case 4:
+				airField.getFastestJet();
+				displayUserMenu();
+				break;
+			case 4:
 //		4) View jet with longest range
-			airField.getLongestRangeJet();
-			displayUserMenu();
-			break;
-		case 5:
+				airField.getLongestRangeJet();
+				displayUserMenu();
+				break;
+			case 5:
 //		5) Load all Cargo Jets
-			airField.loadAllCargoJets();
-			displayUserMenu();
-			break;
-		case 6:
+				airField.loadAllCargoJets();
+				displayUserMenu();
+				break;
+			case 6:
 //		6) Dogfight!
-			airField.dogfight();
-			displayUserMenu();
-			break;
-		case 7:
+				airField.dogfight();
+				displayUserMenu();
+				break;
+			case 7:
 //		7) Add a jet to Fleet
-			airField.addJetMenu(kb);
-			displayUserMenu();
-			break;
-		case 8:
+				airField.addJetMenu(kb);
+				displayUserMenu();
+				break;
+			case 8:
 //		8) Remove a jet from Fleet
-			airField.removeJetMenu(kb);
-			displayUserMenu();
-			break;
-		case 9:
+				airField.removeJetMenu(kb);
+				displayUserMenu();
+				break;
+			case 9:
 //		9) Quit
-			System.out.println("Quitting");
-			kb.close();
-			System.exit(0);
-			break;
-		default:
-			System.out.println("\t\tYou have entered default");
+				System.out.println("Quitting");
+				kb.close();
+				System.exit(0);
+				break;
+			default:
+				System.out.println("\t\tYou have entered default");
+			}
 
 		}
 	}
-	
 
 }

@@ -104,43 +104,46 @@ public class AirField {
 				kb.nextLine();
 			}
 		}
-		if (jetModel == null || jetSpeed == 0.0 || jetRange == 0 || jetPrice == 0) {
-			// System.out.println("\t\tINVALID INPUT");
-		} else {
-			if (!jetModel.equalsIgnoreCase("")) {
-				if (type == 1) {
-					CargoPlane cp = new CargoPlane(jetModel, jetSpeed, jetRange, jetPrice);
-					jets.add(cp);
-					System.out.println("Added " + cp.getClass().getSimpleName());
-				} else if (type == 2) {
-					FighterJet fj = new FighterJet(jetModel, jetSpeed, jetRange, jetPrice);
-					jets.add(fj);
-					System.out.println("Added " + fj.getClass().getSimpleName());
-				} else if (type == 3) {
-					PassengerJet pj = new PassengerJet(jetModel, jetSpeed, jetRange, jetPrice);
-					jets.add(pj);
-					System.out.println("Added " + pj.getClass().getSimpleName());
-				}
-				System.out.println();
+		if (!error) {
+			if (jetModel == null || jetSpeed == 0.0 || jetRange == 0 || jetPrice == 0) {
+				System.out.println("\t\tINVALID INPUT can not be zero ");
 			} else {
-				System.out.println("\t\tModel can not be blank");
-				System.out.println();
+				if (!jetModel.equalsIgnoreCase("")) {
+					if (type == 1) {
+						CargoPlane cp = new CargoPlane(jetModel, jetSpeed, jetRange, jetPrice);
+						jets.add(cp);
+						System.out.println("Added " + cp.getClass().getSimpleName());
+					} else if (type == 2) {
+						FighterJet fj = new FighterJet(jetModel, jetSpeed, jetRange, jetPrice);
+						jets.add(fj);
+						System.out.println("Added " + fj.getClass().getSimpleName());
+					} else if (type == 3) {
+						PassengerJet pj = new PassengerJet(jetModel, jetSpeed, jetRange, jetPrice);
+						jets.add(pj);
+						System.out.println("Added " + pj.getClass().getSimpleName());
+					}
+					System.out.println();
+				} else {
+					System.out.println("\t\tModel name can not be blank");
+					System.out.println();
+				}
 			}
 		}
 	}
 
 	public void removeJetMenu(Scanner kb) {
+		System.out.println("Remove Jet Menu");
 		int choice = -1;
 		boolean error = false;
 		if (jets.size() < 1) {
-			System.out.println("No jets in list to remove!");
+			System.out.println("No jets found!\n");
 		} else {
 			for (int i = 0; i < jets.size(); i++) {
-				System.out.println("Index: " + i + " : " + jets.get(i));
+				System.out.println("Index " + i + ") " + jets.get(i));
 			}
 			System.out.println();
 			try {
-				System.out.print("Enter index number: ");
+				System.out.print("Enter index number of jet to remove: ");
 				choice = kb.nextInt();
 			} catch (Exception e) {
 				error = true;
