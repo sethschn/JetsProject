@@ -40,7 +40,7 @@ public class AirField {
 			} else {
 				System.out.println();
 				System.out.println("\t\tInvalid input please use 1-3\n");
-				addJetMenu(kb);
+				//addJetMenu(kb);
 			}
 		} catch (Exception e) {
 			System.out.println();
@@ -49,7 +49,7 @@ public class AirField {
 			// System.out.println("Invalid input please use 1-3");
 			choice = 0;
 			kb.nextLine();
-			addJetMenu(kb);
+			//addJetMenu(kb);
 		}
 	}
 	
