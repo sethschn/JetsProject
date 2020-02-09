@@ -1,0 +1,5 @@
+CargoPlane, C-130 Hercules, 645, 5250, 30100000
+FighterJet, F-16 Fighting Falcon, 2414, 3222, 18800000
+PassengerJet, Boeing 747, 907, 10800, 219000000
+CargoPlane, C-5 Galaxy, 834, 8890, 224290000
+FighterJet, F-35 Lightning II, 1960, 2800, 79200000
