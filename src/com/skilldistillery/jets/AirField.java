@@ -49,7 +49,6 @@ public class AirField {
 			kb.nextLine();
 		}
 	}
-	
 
 	public void addJet(Scanner kb, int type) {
 		// String model, double speed, int range, long price
@@ -67,9 +66,9 @@ public class AirField {
 			// e.printStackTrace();
 			System.out.println("\t\tInvalid input please use a string for model name");
 			kb.nextLine();
-			
+
 		}
-		
+
 		if (!error) {
 			try {
 				System.out.print("Enter max speed: ");
@@ -81,7 +80,7 @@ public class AirField {
 				kb.nextLine();
 			}
 		}
-		
+
 		if (!error) {
 			try {
 				System.out.print("Enter max range: ");
@@ -93,7 +92,7 @@ public class AirField {
 				kb.nextLine();
 			}
 		}
-		
+
 		if (!error) {
 			try {
 				System.out.print("Enter price: ");
@@ -104,9 +103,9 @@ public class AirField {
 				System.out.println("\t\tInvalid input please use a long for price");
 				kb.nextLine();
 			}
-		}	
+		}
 		if (jetModel == null || jetSpeed == 0.0 || jetRange == 0 || jetPrice == 0) {
-			//System.out.println("\t\tINVALID INPUT");
+			// System.out.println("\t\tINVALID INPUT");
 		} else {
 			if (!jetModel.equalsIgnoreCase("")) {
 				if (type == 1) {
@@ -133,31 +132,33 @@ public class AirField {
 	public void removeJetMenu(Scanner kb) {
 		int choice = -1;
 		boolean error = false;
-		for (int i = 0; i < jets.size(); i++) {
-			System.out.println("Index: "+i+" : "+jets.get(i));
-		}
-		System.out.println();
-		try {
-			System.out.print("Enter index number: ");
-			choice = kb.nextInt();
-		} catch (Exception e) {
-			error = true;
-			// e.printStackTrace();
-			System.out.println("\t\tInvalid input please enter a number between 0 and "+(jets.size()-1));
-			kb.nextLine();
-		}
-		if (!error) {
-			if (choice > -1 && choice < jets.size()) {
-				System.out.println("Removing jet "+jets.get(choice)+"\n");
-				jets.remove(choice);
-			}else {
-				System.out.println("\t\tInvalid input please enter a number between 0 and "+(jets.size()-1));
+		if (jets.size() < 1) {
+			System.out.println("No jets in list to remove!");
+		} else {
+			for (int i = 0; i < jets.size(); i++) {
+				System.out.println("Index: " + i + " : " + jets.get(i));
+			}
+			System.out.println();
+			try {
+				System.out.print("Enter index number: ");
+				choice = kb.nextInt();
+			} catch (Exception e) {
+				error = true;
+				// e.printStackTrace();
+				System.out.println("\t\tInvalid input please enter a number between 0 and " + (jets.size() - 1));
+				kb.nextLine();
+			}
+			if (!error) {
+				if (choice > -1 && choice < jets.size()) {
+					System.out.println("Removing jet " + jets.get(choice) + "\n");
+					jets.remove(choice);
+				} else {
+					System.out.println("\t\tInvalid input please enter a number between 0 and " + (jets.size() - 1));
+				}
 			}
 		}
 	}
-	
-	
-	
+
 	public void flyAllJets() {
 		for (Jet jet : jets) {
 			jet.fly();
@@ -200,8 +201,11 @@ public class AirField {
 				fastestJet = jet;
 			}
 		}
-		System.out.println("Fastest jet is the " + fastestJet.getModel() + " with a speed of " + fastestJet.getSpeed() + " km/h");
-		System.out.println(fastestJet+"\n");
+		if (fastestJet != null) {
+			System.out.println("Fastest jet is the " + fastestJet.getModel() + " with a speed of "
+					+ fastestJet.getSpeed() + " km/h");
+			System.out.println(fastestJet + "\n");
+		}
 	}
 
 	public void getLongestRangeJet() {
@@ -213,9 +217,11 @@ public class AirField {
 				lrJet = jet;
 			}
 		}
-		System.out.println("Longest range jet is the " + lrJet.getModel() + " with a range of "
-				+ (double) lrJet.getRange() + " km");
-		System.out.println(lrJet+"\n");
+		if (lrJet != null) {
+			System.out.println("Longest range jet is the " + lrJet.getModel() + " with a range of "
+					+ (double) lrJet.getRange() + " km");
+			System.out.println(lrJet + "\n");
+		}
 	}
 
 	public void readFromFile() {

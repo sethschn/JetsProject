@@ -21,8 +21,7 @@ public abstract class Jet {
 	public void fly() {
 		String className = this.getClass().getSimpleName();
 		double amtOfTime = (this.range / this.speed);
-		System.out.println(className+"> model: " + model + ", speed: " + speed + " km/h, range: " + range + " km, price: " + NumberFormat.getCurrencyInstance(new Locale("en", "US"))
-        .format(this.price) + "");	
+		System.out.println(this);	
 		System.out.println(className+"> flying for "+String.format("%.2f", amtOfTime)+" hours");
 		System.out.println();
 		//prints out the jet details and the amount of time the jet can fly until it runs out of fuel (based on speed and range
