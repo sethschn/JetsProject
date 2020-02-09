@@ -15,6 +15,6 @@ This is a **jets** *application*.
 
 ###### Lessons Learned
 
-- I learned that i needed to create an object for my main application just to call my methods.
-- I learned how to break my code into smaller pieces that are less prone to breaking.
-- I learned about storing objects in array's and how sometimes scanner.nextLine can cause issues.
+- I learned how to catch errors using try catch blocks and verify user input.
+- I learned how to use abstraction, polymorphism, inheritance, and encapsulation along with array lists.
+
