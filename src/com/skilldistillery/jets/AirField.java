@@ -40,16 +40,13 @@ public class AirField {
 			} else {
 				System.out.println();
 				System.out.println("\t\tInvalid input please use 1-3\n");
-				//addJetMenu(kb);
 			}
 		} catch (Exception e) {
 			System.out.println();
 			// e.printStackTrace();
 			System.out.println("\t\tInvalid input please use 1-3\n");
-			// System.out.println("Invalid input please use 1-3");
 			choice = 0;
 			kb.nextLine();
-			//addJetMenu(kb);
 		}
 	}
 	
@@ -69,12 +66,10 @@ public class AirField {
 			error = true;
 			// e.printStackTrace();
 			System.out.println("\t\tInvalid input please use a string for model name");
-			// jetModel = "default";
-
 			kb.nextLine();
-			// addJet(kb,type);
+			
 		}
-		//kb.nextLine();
+		
 		if (!error) {
 			try {
 				System.out.print("Enter max speed: ");
@@ -83,12 +78,10 @@ public class AirField {
 				error = true;
 				// e.printStackTrace();
 				System.out.println("\t\tInvalid input please use a double for speed");
-				// jetSpeed = 1;
 				kb.nextLine();
-				// addJet(kb,type);
 			}
 		}
-		//kb.nextLine();
+		
 		if (!error) {
 			try {
 				System.out.print("Enter max range: ");
@@ -97,12 +90,10 @@ public class AirField {
 				error = true;
 				// e.printStackTrace();
 				System.out.println("\t\tInvalid input please use a integer for range");
-				// jetRange = 1;
 				kb.nextLine();
-				// addJet(kb,type);
 			}
 		}
-		//kb.nextLine();
+		
 		if (!error) {
 			try {
 				System.out.print("Enter price: ");
@@ -111,15 +102,11 @@ public class AirField {
 				error = true;
 				// e.printStackTrace();
 				System.out.println("\t\tInvalid input please use a long for price");
-				// jetPrice = 1;
 				kb.nextLine();
-				// System.out.println();
-				// addJet(kb,type);
 			}
 		}	
 		if (jetModel == null || jetSpeed == 0.0 || jetRange == 0 || jetPrice == 0) {
 			//System.out.println("\t\tINVALID INPUT");
-			//addJet(kb,type);
 		} else {
 			if (!jetModel.equalsIgnoreCase("")) {
 				if (type == 1) {
@@ -157,10 +144,7 @@ public class AirField {
 			error = true;
 			// e.printStackTrace();
 			System.out.println("\t\tInvalid input please enter a number between 0 and "+(jets.size()-1));
-			// jetModel = "default";
-
 			kb.nextLine();
-			// addJet(kb,type);
 		}
 		if (!error) {
 			if (choice > -1 && choice < jets.size()) {
@@ -168,7 +152,6 @@ public class AirField {
 				jets.remove(choice);
 			}else {
 				System.out.println("\t\tInvalid input please enter a number between 0 and "+(jets.size()-1));
-				//ystem.out.println("\t\t Invalid choice");
 			}
 		}
 	}
