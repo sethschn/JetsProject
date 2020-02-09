@@ -17,4 +17,5 @@ This is a **jets** *application* it takes data from a file named jets.txt and co
 
 - I learned how to catch errors using try catch blocks and verify user input.
 - I learned how to use abstraction, polymorphism, inheritance, and encapsulation along with array lists.
+- I learned how to import data from text files.
 
